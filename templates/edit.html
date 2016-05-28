@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block content_mid%}
+ <div id="edit_card" class="edit_card">
+        <div id="edit_card_content" class="edit_card_content">
+            <div id="edit_card_title" class="edit_card_title"><h2>Edit Profile</h2></div>
+            <div class="edit_card_username_banner">
+                <div class="edit_card_username_banner_content">
+                    {% if current_user.photo %}
+                        <img class="edit_card_photo" src="{{ url_for('post_user_photo', login=current_user.login) }}" height="150" width="150">
+                    {% endif %}
+                    {% if not current_user.photo %}
+                        <a href="/"><img class="edit_card_photo" src="/static/stock.png" height="150" width="150"></a>
+                    {% endif %}
+                    <h1><a href="/u/{{ user }}">{{ user }}</a></h1>
+                </div>
+            </div>
+            <fieldset>
+                <form class="edit_user pure-form pure-form-stacked" method="POST" action="/update_user_info/{{ user }}"
+                    enctype="multipart/form-data">
+                    <div class="form_field_6 pure-control-group">
+                        <label class="enter_bio_input pure-input-2-5" for="bio"> Update Biography:</label>
+                        <textarea class="bio_input pure-input-2-5" type="text" name="updated_bio"
+                               id="enter_bio">{{ bio }}</textarea>
+                    </div>
+
+                    <div class="form_field_7 pure-control-group">
+                        <label class="enter_location pure-input-2-5" for="location">Update Location:</label>
+                        <input class="enter_location_input pure-input-2-5" type="text" name="updated_location" id="set-location" value="{{ location }}">
+                    </div>
+                    <!-- This setup allows us to have a custom upload button, so don't mess with it without
+                     messaging abm67 -->
+                    <label class="edit_user_photo_upload pure-button">
+                        <input type="file" name="image" accept="image/*">
+                        <span>Change Profile Photo</span>
+                    </label>
+
+                    <button type="submit" class="update_profile_button pure-button">Update Profile</button>
+                </form>
+            </fieldset>
+        </div>
+ </div>
+{% endblock content_mid %}

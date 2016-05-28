@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Used jsdelivr as our main CDN to simplify resource gathering http://www.jsdelivr.com -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=display-width, initial-scale=1.0">
+    <link href="/static/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/pure/0.6.0/grids-responsive.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/pure/0.6.0/pure-min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/fontawesome/4.6.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Oxygen:400,300,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })(); </script>
+    <!-- Sets the name of the page and the site's title -->
+    <title>{{ page_title }} | {{ site_title }}</title>
+    <script>var csrfToken = '{{ session.csrf_token }}';</script>
+
+</head>
+<body>
+
+    <!-- We use a wrapper to help with pushing a footer to the bottom of the
+    page when there is very little content on some of the pages -->
+    <div id="wrapper" class="wrapper pure-g">
+
+        <!-- Header Container -->
+        <div id="header" class="header pure-u-5-5 pure-u-md-4-5">
+            <div class="logo_container">
+                <a href="/"><img src="/static/para-keet_logo_med.png"></a>
+            </div>
+        </div>
+
+        <!-- Authentication Bar Container -->
+        <div id="authentication_bar" class="auth_bar pure-u-5-5 pure-u-md-1-5 ">
+            <div class="auth_bar_content">
+                {% if g.user %}
+                    <span>Logged in as <span class="username_menu">{{ g.user.login }}</span><button
+                            class="logout pure-button" onclick="window.location.href='/logout'">Log Out</button></span>
+                {% else %}
+                    <span class="login_create"><button class="login pure-button" onclick="window.location.href='/login'"
+                    >Login</button>  |  <button class="create pure-button" onclick="window.location.href='/create_new_user'"
+                    >Create Account</button></span>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Menu Bar Container-->
+        <div id="menu" class="menu_bar pure-u-1 pure-u-md-5-5">
+            <div class="menu_bar_content">
+                    <button class="home pure-button" onclick="window.location.href='/'">Home</button>
+                    {% if g.user %}
+                        <button class="profile pure-button" onclick="window.location.href='/u/{{ g.user.login }}'">Profile</button>
+                    {% else %}
+                        <button class="profile pure-button" onclick="window.location.href='/login'">Profile</button>
+                    {% endif %}
+                    <button class="all_profiles pure-button" onclick="window.location.href='/view_all_users'">Users</button>
+                <!-- LIST: Need to include links (or window.location.href's) to different
+                pages available to registered and unregistered users. -->
+            </div>
+        </div>
+
+        <!-- Main Content Container -->
+        <div id="content_wrapper" class="content_wrapper pure-u-1">
+
+            <!-- TOP Content Container -->
+            <div id="content_top" class="content_top pure-u-1">
+                {% block content_top %} <!-- Assign & Align Content to TOP -->{% endblock content_top %}
+            </div>
+
+            <!-- Use a div to wrap left and right containers into one container to help with
+            vertical alignment with top and bottom content containers. -->
+            <div id="content_mid" class="content_mid pure-u-1">
+                {% block content_mid %}
+                <!-- LEFT Content Container -->
+                <div id="content_left" class="content_left pure-u-1 pure-u-md-2-5">
+                    {% block content_left %} <!-- Assign & Align Content to LEFT --> {% endblock content_left %}
+                </div>
+
+                <!-- RIGHT Content Container -->
+                <div id="content_right" class="content_right pure-u-1 pure-u-md-3-5">
+                    {% block content_right %} <!-- Assign & Align Content to RIGHT --> {% endblock content_right %}
+                </div>
+                {% endblock content_mid %}
+            </div>
+
+            <!-- BOTTOM Content Container -->
+            <div id="content_bottom" class="content_bottom pure-u-1">
+                {% block content_bottom %} <!-- Assign & Align Content to BOTTOM --> {% endblock content_bottom %}
+            </div>
+
+        </div>
+
+        <!-- Footer Content Container -->
+        <div id="footer" class="footer pure-u-1 pure-u-md-5-5">
+            <div id="footer_content" class="footer_content">
+                Copyright © <script type="text/javascript">document.write(new Date().getFullYear())</script>
+                Jared.W, Alexander. M., Joel.B, Justin.C, & Andres.C. All rights reserved | Design by AbM Design C.O.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

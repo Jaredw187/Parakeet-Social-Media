@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% block content_top %}
+    <div class="welcome_banner">
+        {% if g.user %}
+            <h2>Welcome {{ g.user.login }}!</h2>
+        {% else %}
+            <h2>Welcome Guest!</h2>
+        {% endif %}
+    </div>
+    <div class="welcome_banner_zigzag">
+        <div class="zigzag"></div>
+    </div>
+{% endblock %}
+{% block content_mid %}
+    <div id="index_card" class="index_card">
+        <div id="index_card_content" class="index_card_content">
+        {% set count = [''] %}
+        {% if g.user %}
+
+            {#
+            You follow: <br>
+            <div id="index_list_followers">
+                <ul>
+                {% for follower in i_follow %}
+                    {{ follower.user }}<br>
+                {% endfor %}
+                </ul>
+                {% if not i_follow %}
+                    You have no friends. :(
+                {% endif %}
+            </div>
+            #}
+            {#
+                so.. super janky counting method explination.
+                jinja was being weird and wouldn't keep count of the "count" using integers.
+                with every iteration the counter would be reset.. so we'd get 8 posts.. then the
+                counter would reset to 0. then that would reach 'n' and reset again.. and keep
+                going. so naturally.. i decided to append "spaces" to a object.. and use the
+                length of it to keep count. it works. so.. i vote we keep it.
+           #}
+
+            {# the directions are finicky.. do we want to print what people the user follows have sent and recieved
+               or just sent.. its literally deleting the "or" and the text to the right in the statment below to change
+               this.. its just a matter of preference..
+           #}
+            <div id="index_card_title" class="index_card_title">
+                <div id="index_card_title_content" class="index_card_title_content">
+                    <h3> What your friends have been saying... </h3>
+                </div>
+            </div>
+
+            <div id="index_list_posts">
+                {% for message in messages %}
+                    {% for follower in i_follow %}
+                        {# we need to only post the people we follow posts - uncomment line below for your posts #}
+                        {% if message.sender == follower.user %} {# or message.recipient == follower.user%}#}
+                            {% if count|length < 21 %}
+                                <div class="recent_msgs">
+                                    <div class="recent_msgs_content">
+                                        {% for user in users %}
+                                            {% if user.login == message.sender %}
+                                                <div class="user_photo_recent_msgs">
+                                                {# show images if there is one #}
+                                                {% if user.photo%}
+                                                    <img class="photo" src="{{ url_for('post_user_photo', login=user.login) }}" height="64" width="64">
+                                                 {% endif %}
+                                                 {% if not user.photo %}
+                                                       <a class="photo" href="/"><img src="/static/stock.png" height="64" width="64"></a>
+                                                 {% endif %}
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        <div class="recent_msgs_details">
+                                            <h3><a href="/u/{{ message.sender}}">{{ message.sender}}</a></h3>
+                                            <h6>{{ message.time_stamp }}</h6>
+                                        </div>
+
+                                        <div class="recent_msgs_message">
+                                            {% for c in content %}
+                                                {% if c == message.message %}
+                                                    {{ c }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+
+                                        <div class="recent_msgs_image">
+                                            {% if message.photo %}
+                                                    <img class="photo" src="{{ url_for('post_photo', message_id=message.id) }}"
+                                                    height="200" width="200" align="center">
+                                            {% endif %}
+                                        </div>
+                                        {% if count.append(' ') %} {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+
+        {% elif not g.user %}
+            <div id="index_card_title" class="index_card_title">
+                <div id="index_card_title_content" class="index_card_title_content">
+                    <h2> What others have been saying... </h2>
+                    <h3> Login or create an account to view User Profiles</h3>
+                </div>
+            </div>
+            <div id="index_list_posts">
+                    {% for message in messages if count|length < 21 %} {# have to kill it at 20! #}
+                        <div class="recent_msgs">
+                            <div class="recent_msgs_content">
+                                {% for user in users %}
+                                    {% if user.login == message.sender %}
+                                        <div class="user_photo_recent_msgs">
+                                            {# show images if there is one #}
+                                            {% if user.photo%}
+                                                <img class="photo" src="{{ url_for('post_user_photo', login=user.login) }}" height="64" width="64">
+                                            {% endif %}
+                                            {% if not user.photo %}
+                                                <a class="photo" href="/"><img src="/static/stock.png" height="64" width="64"></a>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                                <div class="recent_msgs_details">
+                                    <h3><a href="/u/{{ message.sender}}">{{ message.sender}}</a></h3>
+                                    <h6>{{ message.time_stamp }}</h6>
+                                </div>
+
+                                <div class="recent_msgs_message">
+                                    {% for msg in content %}
+                                        {% if msg == message.message %}
+                                            {{ msg }}
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+
+                                <div class="recent_msgs_image">
+                                    {% if message.photo %}
+                                        <img class="photo" src="{{ url_for('post_photo', message_id=message.id) }}"
+                                             height="200" width="200" align="center">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% if count.append(' ') %}{% endif %}
+                    {% endfor %}
+            </div>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block content_bottom %}
+    <!--
+    Content BOTTOM is not needed here, simply including it for consistency in the event that we use this container
+    on other pages
+    -->
+{% endblock content_bottom %}
+

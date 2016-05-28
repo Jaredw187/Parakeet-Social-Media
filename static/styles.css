@@ -1,0 +1,1204 @@
+/*******************************************************
+    Base HTML Styling (DO NOT Change w/o asking)
+*******************************************************/
+/*
+    General practice here is to use #id's for general
+    sizing while using .class's for styling, color,
+    and text layout.
+*/
+html,
+body{
+    color: #0c2026;
+	margin:0;
+	padding:0;
+	height:100%;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 300;
+	background: #f3f3f3 url("/static/debut_light_background.png") repeat left top;
+}
+h1{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 2em;
+}
+h2{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 1.5em;
+}
+h3{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 1.17em;
+}
+h4{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 1.12em;
+}
+h5{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 0.83em;
+}
+h6{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 0.75em;
+}
+#wrapper.pure-g {
+	min-height:100%;
+	position:relative;
+}
+/*******************************************************
+	Link Styling
+*******************************************************/
+a:link{
+    color: #add8e6;
+}
+a:visited{
+    color: #a9351b;
+}
+a:hover{
+    color: #a9351b;
+}
+
+/***********************************************************************************
+                   MOBILE Styling (NOTE: Mobile ≤ 768px / 48em)
+************************************************************************************/
+
+/*******************************************************
+	Header Styling (Controlled by Class)
+*******************************************************/
+#header {
+    height: 7em;
+}
+.header{
+    background:#f3f3f3;
+    border-bottom: 0.1em solid #d8d8d8;
+    -webkit-box-shadow: 0 1px 1px -1px  rgba(140, 140, 140, .15);
+    -moz-box-shadow: 0 1px 1px -1px  rgba(140, 140, 140, .15);
+    box-shadow: 0 1px 1px -1px  rgba(140, 140, 140, .15);
+}
+.logo_container{
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 210px; /* Width of logo */
+}
+/*******************************************************
+	Authentication Bar Styling (Controlled by Class)
+*******************************************************/
+#authentication_bar{
+    height: 2em;
+}
+.auth_bar{
+    background: #add8e6;
+}
+.auth_bar_content{
+    margin: 0.5em auto auto 0.3em;
+    text-align: center;
+    font-size: 10pt;
+}
+.pure-button.login{
+    padding: 0;
+    font-weight: 400;
+    font-size: 11pt;
+    background: none;
+    color: #f3f3f3;
+    text-transform: uppercase;
+}
+.pure-button.create{
+    padding: 0;
+    font-weight: 400;
+    font-size: 11pt;
+    background: none;
+    color: #f3f3f3;
+    text-transform: uppercase;
+}
+.auth_bar_content span{
+    font-weight: 400;
+    color: #f3f3f3;
+}
+.username_menu{
+    text-transform: capitalize;
+}
+.pure-button.logout{
+    color: #f3f3f3;
+    font-weight: 400;
+    margin: -0.1em auto;
+    text-transform: uppercase;
+    background: none;
+}
+
+.pure-button.login:hover, .pure-button.logout:hover, .pure-button.create:hover, .pure-button.login:active,
+.pure-button.logout:active, .pure-button.create:active{
+    box-shadow: none;
+    background-image: none;
+    filter: none;
+}
+
+/*******************************************************
+	Menu Styling (Controlled by Class)
+*******************************************************/
+#menu{
+    height: 3em;
+    border-top: 0.2em solid #DE5233;
+    border-bottom: 0.2em solid #DE5233;
+}
+.menu_bar{
+    background: #a9351b;
+}
+.menu_bar_content{
+    height: 3em;
+    text-align: center;
+
+}
+.pure-button.home, .pure-button.profile, .pure-button.all_profiles {
+    background: transparent;
+    height: 3.2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 0;
+    font-size: 12pt;
+    font-weight: 500;
+    color: #f3f3f3;
+}
+.pure-button.home:active, .pure-button.profile:active, .pure-button.all_profiles:active{
+    box-shadow: none;
+    background-image: none;
+    filter: none;
+}
+.pure-button.home:hover, .pure-button.profile:hover, .pure-button.all_profiles:hover{
+    color: #a9351b;
+    background: #DE5233;
+}
+
+/*******************************************************
+	Top, Left, Right, Bottom Styling
+*******************************************************/
+#content_wrapper.content_wrapper.pure-u-1{
+    padding-bottom: 5em; /* Height of the footer element minus border height*/
+}
+#content_top{
+    text-align: center;
+}
+#content_mid{
+    text-align: center;
+}
+#content_bottom{
+    text-align: center;
+}
+.content_top{
+
+}
+.content_mid{
+
+}
+.content_left{
+
+}
+.content_right{
+
+}
+.content_bottom{
+
+}
+/*******************************************************
+	Homepage Styling
+*******************************************************/
+/****************************
+   Welcome Banner Styling
+****************************/
+.welcome_banner {
+    background: #0c2026;
+    margin: -1.3em auto;
+}
+.welcome_banner_zigzag{
+    margin-top: -2.5em;
+}
+.welcome_banner h2{
+    padding: 1em 0 1em 0;
+    color: #add8e6;
+}
+.zigzag {
+    position: relative;
+    padding: 8px 8px 32px 8px;
+    background: #0c2026;
+}
+.zigzag:after {
+    background: linear-gradient(-45deg, #f3f3f3 16px, transparent 0), linear-gradient(45deg, #f3f3f3 16px, transparent 0);
+    background-position: left-bottom;
+    background-repeat: repeat-x;
+    background-size: 32px 32px;
+    content: " ";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 32px;
+}
+/****************************
+   Homepage title
+****************************/
+#index_card_title{
+    margin-top: -0.5em;
+    margin-bottom: 1.5em;
+}
+.index_card_title{
+    background: #f3f3f3;
+}
+.index_card_title_content{
+    padding: 0.1em 0 0.1em 0;
+}
+#index_list_posts {
+    text-align: justify;
+
+}
+
+#index_list_followers {
+    text-align: justify;
+    margin: 0 auto;
+    width: 10em;
+}
+/****************************
+   Recent Posts Styling
+****************************/
+.recent_msgs{
+    background: #ffffff;
+    width: 100%;
+    margin-bottom: 2em;
+    -moz-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+}
+.recent_msgs_content{
+    padding: 1em;
+}
+.user_photo_recent_msgs{
+    float: left;
+    padding-right: 0.7em;
+}
+.recent_msgs_details a:link, .recent_msgs_details a:visited{
+    color: #a9351b;
+}
+.recent_msgs_details h3{
+    margin-bottom: -1.6em;
+
+}
+.recent_msgs_details h6{
+    color: #add8e6;
+}
+.recent_msgs_message{
+    display: block;
+    padding: 0.3em 0 0.5em 0;
+}
+.user_recent_msgs_photo{
+    display: block;
+}
+
+
+/*******************************************************
+	Login Page Styling
+*******************************************************/
+/****************************
+    Card Styling
+****************************/
+#login_card{
+    display: block;
+    height: 20em;
+    width: 100%;
+    margin: 1.5em auto 2em auto;
+    padding: 0;
+
+}
+#login_card_title{
+    margin-bottom: -2em;
+}
+#login_card_content{
+    padding: 0.5em;
+}
+.login_card_title h2{
+    color: #f3f3f3;
+    font-weight: 400;
+    font-size: 26pt;
+}
+.login_card{
+    background: #add8e6;
+    -moz-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+}
+.login_card_content fieldset{
+    padding: 0;
+    border: hidden;
+}
+.login_card_content label{
+    visibility: hidden;
+}
+/****************************
+    Form Styling
+****************************/
+.pure-form.login_user{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 12em; /* Match to input width */
+}
+.username_input, .password_input{
+    min-width: 12em;
+    color: #a9351b;
+}
+.pure-control-group.form_field_usern, .pure-control-group.form_field_pswd{
+    margin-top: -0.4em;
+}
+.pure-button.login_card_button{
+    width: 12em;
+    background: #DE5233;
+    color: #f3f3f3;
+}
+.pure-button.login_card_button:hover{
+    background: #d4ebf2;
+    color: #a9351b;
+}
+/****************************
+ Create Account Link Styling
+****************************/
+.create_account_link{
+    font-size: 14pt;
+    padding-top: 1em;
+}
+.create_account_link a:active, a:visited, a:link{
+    text-decoration: none;
+    color: white;
+}
+.create_account_link a:hover{
+    color: #a9351b;
+}
+/*******************************************************
+	Create User Page Styling
+*******************************************************/
+/****************************
+    Card Styling
+****************************/
+#create_card{
+    display: block;
+    width: 100%;
+    height:33em;
+    margin: -0.5em auto 2em auto;
+    padding: 0;
+}
+#login_card_title{
+    width: 100%;
+}
+#login_card_content{
+    padding: 0.5em;
+}
+.create_card{
+    background: #add8e6;
+    -moz-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+}
+.create_card_title h2{
+    padding-top: 0.5em;
+    margin-bottom: 0.5em;
+    color: #f3f3f3;
+    font-weight: 400;
+    font-size: 26pt;
+}
+.create_card_content fieldset{
+    margin-top: -2em;
+    border: hidden;
+    padding: 0;
+}
+/****************************
+    Form Styling
+****************************/
+/* General form field styling's */
+.pure-form.create_user{
+    display: block;
+    margin: 0 auto 0 auto;
+    width: 14.5em;
+
+}
+.pure-control-group.form_field_1, .pure-control-group.form_field_2,.pure-control-group.form_field_3,
+.pure-control-group.form_field_4{
+    color: #a9351b;
+    margin-bottom: -1em; /* Tighten up the form fields */
+}
+.pure-control-group.form_field_1 label, .pure-control-group.form_field_2 label,.pure-control-group.form_field_3 label,
+.pure-control-group.form_field_4 label, .pure-control-group.form_field_5 label{
+    visibility: hidden;
+}
+.pure-control-group.form_field_3{
+    margin-top: -1em; /* Tighten up the form fields */
+}
+.pure-control-group.form_field_4{
+    margin-bottom: -1em;
+}
+.form_field_5 textarea.bio_input{
+    color: #a9351b;
+    height: 5em;
+}
+label.user_photo_upload input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+
+/****************************
+ Photo Upload Button Styling
+****************************/
+.pure-button.user_photo_upload {
+    width: 14.5em;
+    background: #f3f3f3;
+    display: inline-block;
+}
+.user_photo_upload:hover{
+    background: #DE5233;
+}
+.user_photo_upload:hover :valid + span{
+    color: #a9351b;
+}
+.user_photo_upload:active {
+    background: #d4ebf2;
+}
+.user_photo_upload :invalid + span {
+    color: #DE5233;
+}
+.user_photo_upload :valid + span {
+    color: #add8e6;
+}
+
+.pure-button.create_user_button{
+    width: 12em;
+    background: #DE5233;
+    color: #d4ebf2;
+}
+.pure-button.create_user_button:hover{
+    background: #d4ebf2;
+    color: #a9351b;
+}
+/****************************
+Existing Account Link Styling
+****************************/
+.existing_account_link{
+    font-size: 14pt;
+    padding-top: 1em;
+}
+.existing_account_link a:active, a:visited, a:link{
+    text-decoration: none;
+    color: orangered;
+}
+.existing_account_link a:hover{
+    color: #a9351b;
+}
+/*******************************************************
+	Error Message Styling
+*******************************************************/
+#error_message{
+    height: 3em;
+    margin-top: -0.5em;
+}
+.error_msg{
+    color: #a9351b;
+    text-shadow: 0.1em 0.1em #add8e6;
+    text-align: center;
+    background: #d4ebf2;
+}
+.error_msg p{
+    padding-top: 1em;
+}
+/*******************************************************
+	Profile Page Styling
+*******************************************************/
+/****************************
+    General Shell Styling
+****************************/
+#profile_shell_left{
+    margin-top: 1em;
+}
+#profile_shell_right{
+    margin-bottom: 1.5em;
+}
+/****************************
+    Profile Photo Styling
+****************************/
+.user_profile {
+    height: auto;
+    background: #f3f3f3;
+    padding-bottom: 1em;
+}
+.user_profile_photo{
+    margin-top: 1.5em;
+    border: solid 0.5em #f3f3f3;
+}
+.photo_banner{
+    height: 8em;
+    background: #add8e6;
+    margin-bottom: -1.5em;
+
+}
+/****************************
+    Username Styling
+****************************/
+.username_banner{
+    padding-top: 0.1em;
+    padding-bottom: 0.01em;
+    background: #a9351b;
+}
+.username_banner h1{
+    margin-top: 2.7em;
+    margin-bottom: 0.3em;
+    font-weight: 300;
+    color: #DE5233;
+}
+.username_banner a:link{
+    color: #ffffff;
+}
+.username_banner a:visited{
+    color: #DE5233;
+}
+.username_banner a:hover{
+    color: #add8e6;
+}
+.username_banner a:active{
+    color: #0c2026;
+}
+/****************************
+    Follow Button Styling
+****************************/
+.pure-button.user_follow_button{
+    text-transform: capitalize;
+    color: #a9351b;
+    background: #add8e6;
+    width: 100%;
+    border-radius: 0;
+}
+.pure-button.user_follow_button:hover, .pure-button.user_follow_button:active{
+    box-shadow: none;
+    background-image: none;
+    filter: none;
+}
+/****************************
+    User "About" Styling
+****************************/
+#profile_details_shell{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+#user_about_details {
+    text-align: left;
+}
+.pure-button.user_edit_button{
+    background: #f3f3f3;
+}
+.pure-button.user_edit_button:hover, .pure-button.user_edit_button:active{
+    box-shadow: none;
+    background-image: none;
+    filter: none;
+    color: #a9351b;
+}
+/****************************
+    User Messages Styling
+****************************/
+.user_profile_messages{
+    background: #f3f3f3;
+}
+.user_profile_messages_content{
+    padding: 1em;
+}
+label.user_post{
+    visibility: hidden;
+}
+.pure-form.pure-form-stacked.user_post_msg{
+    width: 18em; /* Same as form fields */
+    margin-left: auto;
+    margin-right: auto;
+}
+.pure-input-2-5.user_post{
+    display: block;
+    width: 18em;
+    border: solid 0.5em #ffffff;
+    border-radius: 0;
+    color: #0c2026;
+}
+.pure-input-2-5.user_post:focus{
+    border-color: transparent;
+}
+/****************************
+ General Post Button Styling
+****************************/
+.user_post_actions{
+    margin-top: -1.5em;
+}
+/***********
+Photo Button
+***********/
+label.user_photo_upload_2 input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+.pure-button.user_photo_upload_2 {
+    margin-top: 1em;
+    width: 9em;
+    background: #ffffff;
+    display: inline-block;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.user_photo_upload_2:hover{
+    background: #DE5233;
+}
+.user_photo_upload_2:hover :valid + span{
+    color: #a9351b;
+}
+.user_photo_upload_2:active {
+    background: #d4ebf2;
+}
+.user_photo_upload_2 :invalid + span {
+    color: #DE5233;
+}
+.user_photo_upload_2 :valid + span {
+    color: #add8e6;
+}
+/***********
+ Post Button
+***********/
+.pure-button.user_submit_post{
+    display: inline-block;
+    margin-top: 0.8em;
+    width: 9em;
+    background: #ffffff;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    color: #add8e6;
+}
+.pure-button.user_submit_post:hover, .pure-button.user_submit_post:active{
+    background: #DE5233;
+    color: #a9351b;
+    box-shadow: none;
+    background-image: none;
+    filter: none;
+}
+/****************************
+ Recent Posts Styling
+****************************/
+.user_recent_msgs{
+    background: #ffffff;
+    width: 100%;
+    margin-bottom: 1.5em;
+    -moz-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+}
+.user_recent_msgs_content{
+    padding: 1em;
+}
+.user_recent_msgs_content{
+    padding: 1em;
+}
+.user_recent_msgs_content_of_message p{
+    color: orangered;
+    font-size: 1500%;
+}
+.user_recent_msgs_photo{
+    float: left;
+    padding-right: 0.7em;
+}
+.user_recent_msgs_details a:link, .user_recent_msgs_details a:visited{
+    color: #a9351b;
+}
+.user_recent_msgs_details h3{
+    margin-bottom: -1.6em;
+
+}
+.user_recent_msgs_details h6{
+    color: #add8e6;
+}
+.user_post_image{
+    min-width: 16em;
+    width: 20%;
+    height: 5%;
+    overflow: hidden;
+}
+/*******************************************************
+	Edit Profile Page Styling
+*******************************************************/
+/****************************
+   Photo Styling
+****************************/
+.edit_card_photo{
+    padding: 0;
+    margin: 1em auto;
+    border: solid 0.5em #f3f3f3;
+}
+
+.edit_card_username_banner{
+    background: #a9351b;
+    width: 14em;
+    margin: -2em auto;
+}
+.edit_card_username_banner h1{
+    font-size: 14pt; /* Font scales based on view window */
+    margin: -0.4em auto 0 auto;
+    padding-bottom: 0.2em;
+}
+.edit_card_username_banner_content{
+    padding: 0.5em;
+}
+/****************************
+    Form Styling
+****************************/
+#edit_card{
+    display: block;
+    width: 100%;
+    height:38em;
+    margin: 1.5em auto 2em auto;
+    padding: 0;
+}
+#edit_card_title{
+    width: 100%;
+}
+#edit_card_content{
+    padding: 0.5em;
+}
+.edit_card{
+    background: #add8e6;
+    -moz-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+}
+.edit_card_title h2{
+    margin: 0.5em auto 1em auto;
+    color: #f3f3f3;
+    font-weight: 400;
+    font-size: 26pt;
+}
+.edit_card_content fieldset{
+    margin: 2.5em auto auto auto;
+    border: hidden;
+    padding: 0;
+    width: 13em;
+}
+.pure-control-group.form_field_6 label, .pure-control-group.form_field_7 label{
+    text-align: left;
+    color: #f3f3f3;
+}
+.pure-control-group.form_field_6 .pure-input-2-5.bio_input{
+    min-height:4em;
+}
+/***********
+Photo Button
+***********/
+label.edit_user_photo_upload input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+.pure-button.edit_user_photo_upload {
+    width: 14.5em;
+    background: #f3f3f3;
+    margin-bottom: 0.5em;
+}
+.edit_user_photo_upload:hover{
+    background: #DE5233;
+}
+.edit_user_photo_upload:hover :valid + span{
+    color: #a9351b;
+}
+.edit_user_photo_upload:active {
+    background: #d4ebf2;
+}
+.edit_user_photo_upload :invalid + span {
+    color: #DE5233;
+}
+.edit_user_photo_upload :valid + span {
+    color: #add8e6;
+}
+/****************************
+    Edit Profile Button
+****************************/
+.pure-button.update_profile_button{
+    width: 10em;
+    background: #a9351b;
+    color: #f3f3f3;
+}
+.pure-button.update_profile_button:hover{
+    background: #d4ebf2;
+    color: #a9351b;
+}
+/*******************************************************
+	All Users Page Styling
+*******************************************************/
+#all_users_card{
+    width: 85%;
+    height: 100%;
+    margin: 1em auto 1.5em auto;
+}
+.all_users_card{
+    background: #add8e6;
+    padding-bottom: 2em;
+}
+.all_users_card_content{
+    padding: 0.2em;
+}
+.all_users_card_content h1{
+    color: #f3f3f3;
+}
+.user_photo{
+    margin: 1.8em auto;
+    border: solid 0.4em #f3f3f3;
+}
+.all_users_user{
+    border-radius: 100%;
+    background: #a9351b;
+    height: 11em;
+    width: 11em;
+    margin: 0 auto 1.5em auto;
+    border: solid 0.2em #f3f3f3;
+
+}
+.all_users_user h4{
+    color: #a9351b;
+    margin: -1.7em auto 0.5em auto;
+}
+.all_users_user a:visited, a:link{
+     color: #f3f3f3;
+}
+.all_users_user a:hover{
+    color: #DE5233;
+}
+
+/*******************************************************
+	Footer Styling
+*******************************************************/
+#footer{
+    position: absolute;
+	width:100%;
+	height:5em;
+	bottom:0;
+	left:0;
+}
+#footer_content{
+    margin-top: 0.75em;
+    text-align: center;
+    font-size: 10pt;
+}
+.footer{
+	background: #DE5233;
+	border-top: solid 0.2em #a9351b;
+}
+.footer_content{
+	color: #a9351b;
+	font-size: 10pt;
+	max-width: 65%;
+    margin: 0 auto 0 auto;
+}
+/***********************************************************************************
+                   Desktop Styling (NOTE: Desktop ≥ 768px / 48em)
+************************************************************************************/
+@media screen and (min-width: 48em) {
+    /*******************************************************
+        Homepage Styling
+    *******************************************************/
+    /****************************
+       Welcome Banner Styling
+    ****************************/
+    /*
+        No changes to this section.
+    */
+    /****************************
+       Homepage title
+    ****************************/
+    /*
+        No changes to this section.
+    */
+    /****************************
+       Recent Posts Styling
+    ****************************/
+    .recent_msgs {
+        /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /*******************************************************
+        Login Page Styling
+    *******************************************************/
+    /****************************
+        Card Styling
+    ****************************/
+    #login_card {
+        /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        height: 30em;
+        width: 30em;
+        margin: 5em auto 5em auto;
+    }
+    #login_card_content {
+        /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        padding: 2em;
+    }
+    .login_card_title h2 {
+        /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        margin-top: 2.5em;
+    }
+    /****************************
+        Form Styling
+    ****************************/
+    .pure-button.login_card_button {
+        /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        margin-top: 0.8em;
+    }
+
+    /****************************
+     Create Account Link Styling
+    ****************************/
+    .create_account_link{
+        /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        margin-top: -2em;
+    }
+    /*******************************************************
+	    Error Message Styling
+    *******************************************************/
+    #error_message{
+        /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        margin-top: 1em;
+    }
+    /*******************************************************
+	    Profile Page Styling
+    *******************************************************/
+    /****************************
+        General Shell Styling
+    ****************************/
+    #profile_shell_left{
+        display: inline-block;
+        width: 32%;
+    }
+    #profile_shell_right{
+        vertical-align: top;
+        display: inline-block;
+        width: 54%;
+        padding: 0 2em 0 2em;
+        margin-top: 1em;
+    }
+
+    /****************************
+        Profile Photo Styling
+    ****************************/
+    /*
+    No changes to this section.
+    */
+
+    /****************************
+        Username Styling
+    ****************************/
+     /*
+    No changes to this section.
+    */
+
+    /****************************
+        Follow Button Styling
+    ****************************/
+     /*
+    No changes to this section.
+    */
+
+    /****************************
+        User "About" Styling
+    ****************************/
+     /*
+    No changes to this section.
+    */
+
+    /****************************
+        User Messages Styling
+    ****************************/
+    .pure-form.pure-form-stacked.user_post_msg{
+        width: 100%; /* Same as form fields */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pure-input-2-5.user_post{
+        display: block;
+        width: 100%;
+        border: solid 0.5em #ffffff;
+        border-radius: 0;
+        color: #0c2026;
+    }
+    /****************************
+     General Post Button Styling
+    ****************************/
+    /*
+    No changes to this section.
+    */
+    /***********
+    Photo Button
+    ***********/
+    .pure-button.user_photo_upload_2 {
+        /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        width: 50%;
+    }
+    /***********
+     Post Button
+    ***********/
+    .pure-button.user_submit_post{
+        /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        width: 50%;
+
+    }
+    /****************************
+     Recent Posts Styling
+    ****************************/
+     /*
+    No changes to this section.
+    */
+    /*******************************************************
+	    Edit Profile Page Styling
+    *******************************************************/
+    /****************************
+       Photo Styling
+    ****************************/
+    /*
+    No changes to this section.
+    */
+    /****************************
+        Form Styling
+    ****************************/
+     /*
+        Added in addition to the
+        base styling from mobile.
+     */
+    #edit_card{
+        width: 38em;
+        height:38em;
+        margin: 2em auto 2em auto;
+    }
+    /***********
+    Photo Button
+    ***********/
+    /*
+    No changes to this section.
+    */
+    /****************************
+        Edit Profile Button
+    ****************************/
+    /*
+    No changes to this section.
+    */
+    /*******************************************************
+	Create User Page Styling
+    *******************************************************/
+    /****************************
+        Card Styling
+    ****************************/
+     /*
+        Added in addition to the
+        base styling from mobile.
+     */
+    #create_card{
+        width: 30em;
+        height:33em;
+        margin: 2em auto 2em auto;
+    }
+    /****************************
+        Form Styling
+    ****************************/
+    /*
+    No changes to this section.
+    */
+    /****************************
+     Photo Upload Button Styling
+    ****************************/
+    /*
+    No changes to this section.
+    */
+    /****************************
+    Existing Account Link Styling
+    ****************************/
+    /*
+    No changes to this section.
+    */
+    /*******************************************************
+        Error Message Styling
+    *******************************************************/
+    /*
+       Added in addition to the
+       base styling from mobile.
+    */
+    #error_message{
+        height: 3em;
+    }
+    /*******************************************************
+	    All Users Page Styling
+    *******************************************************/
+    #all_users_card{
+         /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        width: 45%;
+        height: 100%;
+        margin: 1em auto 1.5em auto;
+    }
+    .user_photo{
+         /*
+        Added in addition to the
+        base styling from mobile.
+        */
+        margin: 3em auto;
+    }
+    .all_users_user{
+        /*
+       Added in addition to the
+       base styling from mobile.
+        */
+        height: 15em;
+        width: 15em;
+
+    }
+    .all_users_user h4{
+        /*
+       Added in addition to the
+       base styling from mobile.
+        */
+        color: #a9351b;
+        margin: -1.7em auto 0.5em auto;
+    }
+    /*******************************************************
+	    Footer Styling
+    *******************************************************/
+    #footer_content{
+        /*
+       Added in addition to the
+       base styling from mobile.
+        */
+        margin-top: 2.5em;
+    }
+
+} /********** End of Desktop **********/

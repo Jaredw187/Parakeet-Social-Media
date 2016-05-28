@@ -1,0 +1,10 @@
+/* Used to create the custom profile photo upload button */
+http://stackoverflow.com/questions/21842274/cross-browser-custom-styling-for-file-upload-button
+
+/* Used to make zigzag */
+https://localmotors.com/blog/post/zig-zag-borders-in-css/1205/
+
+/* Used for the Profile Page to help with getting the Desktop
+view to work with splitting the profile information from the posts.
+*/
+http://stackoverflow.com/questions/5803023/how-to-place-two-divs-next-to-each-other

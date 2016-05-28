@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content_mid %}
+<div id="profile_wrapper">
+{% block content_left %}
+  <div id="profile_shell_left" class="user_profile" data-user-id="{{ id }}">
+      <div class="photo_banner">
+          {% if photo %}
+              <img class="user_profile_photo" src="{{ url_for('post_user_photo', login=user) }}" height="150" width="150">
+          {% endif %}
+          {% if not photo %}
+              <a href="/"><img class="user_profile_photo" src="/static/stock.png" height="150" width="150"></a>
+          {% endif %}
+      </div>
+      <div class="username_banner">
+        <h1><a href="/u/{{ user }}">{{ user }}</a></h1>
+      </div>
+      <div class="js_follow" data-user="{{ user }}" data-g="{{ g.user.login }}" data-is-follower="{{ user_is_follower }}">
+      {% if user != g.user.login %} {# we dont want to follow ourselves. we cant be that guy.. #}
+            {# display different buttons depending on realtionship between current user & profile of user#}
+            {% if not user_is_follower %}
+                <button class="user_follow_button pure-button" data-state="{{ user_is_follower }}">Click to Follow</button>
+            {% else %}
+                <button class="user_follow_button pure-button" data-state="{{ user_is_follower }}">Click to Un-Follow</button>
+            {% endif %}
+
+      {% endif %}
+      </div>
+      <div id="profile_details_shell">
+          <div id="user_about_details">
+              <p>Location: {{ location }}</p>
+          </div>
+
+          <div id="user_about_details">
+              <p>Biography: {{ bio }}</p>
+          </div>
+
+          {% for follower in followers %}
+                {% if follower.user == user %}
+                    <p>{{ follower.person_follow }} is following {{ follower.user }}</p>
+                {% endif %}
+          {% endfor %}
+      </div>
+      {% if user == g.user.login %}
+        <button class="user_edit_button pure-button" onclick="window.location='/edit_user/{{ user }}';">Edit Profile</button>
+      {% endif %}
+  </div>
+{% endblock content_left %}
+{% block content_right %}
+
+
+    <div id="profile_shell_right" class="user_profile_messages" data-user-id="{{ id }}">
+        <div class="user_profile_messages_content">
+            <form class="user_post_msg pure-form pure-form-stacked" method="POST" action="/post_message/{{ user }}" enctype="multipart/form-data">
+                <label class="user_post" for="user_post">Post:</label>
+                <textarea class="user_post pure-input-2-5" type="text" name="post-text" placeholder="Inspire the world..." maxlength="256"></textarea>
+                {# CSRF token for security #}
+                <input type="hidden" name="_csrf_token" value="{{ session.csrf_token }}">
+                <input type="hidden" name="recipient" value="{{ user.id }}">
+                <!-- This setup allows us to have a custom upload button, so don't mess with it without
+                 messaging abm67 -->
+                <div class="user_post_actions">
+                <label class="user_photo_upload_2 pure-button">
+                    <input type="file" name="image" accept="image/*">
+                    <span>Attach Photo</span>
+                </label><button class="user_submit_post pure-button" type="submit">Post</button>
+                </div>
+            </form>
+
+            <h3> Recent Posts </h3>
+
+            <div id="index_list_posts" class="index_list_posts">
+                {% for message in messages if count < 11 %} {# have to kill it at 10! #}
+                    <div class="user_recent_msgs">
+                        <div class="user_recent_msgs_content">
+                            <div class="user_recent_msgs_photo">
+                                {% if photo %}
+                                    <img class="photo" src="{{ url_for('post_user_photo', login=message.sender) }}" height="64" width="64">
+                                {% endif %}
+                                {% if not photo %}
+                                    <a class="photo" href="/"><img src="/static/stock.png" height="64" width="64"></a>
+                                {% endif %}
+                            </div>
+                            <div class="user_recent_msgs_details">
+                            <h3><a href="/u/{{ message.sender}}">{{ message.sender}}</a></h3>
+                            <h6>{{ message.time_stamp }}</h6>
+                            </div>
+                            <div id="user_recent_msgs_content_of_message">
+                                {{ content[content_count] }}
+                            </div>
+                                {% if message.photo %}
+                                        <img class="user_post_image" src="{{ url_for('post_photo', message_id=message.id) }}" height="200"
+                                             width=200 align="center">
+                                {% endif %}
+                                {# increment the count, mkay. #}
+                                {% set count = count + 1 %}
+                                {% set content_count = content_count + 1 %}
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script type="application/javascript" src="{{ url_for('static', filename='fun.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='userpage.js') }}" async></script>
+{% endblock content_right%}
+</div>
+{% endblock content_mid %}

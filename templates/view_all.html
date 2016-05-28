@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{%  block content_top %}
+    <!--
+    Content TOP is not needed here, simply including it for consistency in the event that we use this container
+    on other pages
+    -->
+{% endblock content_top %}
+
+{% block content_mid %}
+    <div id="all_users_card" class="all_users_card">
+        <div class="all_users_card_content">
+            <h1>{{ page_title }}</h1>
+            {% for user in users %}
+                <div class="all_users_user">
+                    {% if user.photo %}
+                        <a href="/u/{{ user.login }}"><img class="user_photo" src="{{ url_for('post_user_photo', login=user.login) }}" height="75" width="75" align="center"></a>
+                    {% endif %}
+                    {% if not user.photo %}
+                        <a href="/u/{{ user.login }}"><img class="user_photo" src="/static/stock.png" height="75" width="75"></a>
+                    {% endif %}
+                    <h4><a href="/u/{{ user.login}}">{{ user.login }}</a></h4>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content_mid %}
+
+{% block content_bottom %}
+    <!--
+    Content BOTTOM is not needed here, simply including it for consistency in the event that we use this container
+    on other pages
+    -->
+{% endblock content_bottom %}
+
+
+
